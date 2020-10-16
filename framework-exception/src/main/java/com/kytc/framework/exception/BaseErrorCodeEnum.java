@@ -17,6 +17,9 @@ public enum BaseErrorCodeEnum implements BaseErrorCode{
     SYSTEM_ERROR(20000,"系统错误"),
     OPERATION_FAILED(30000,"操作失败"),
     HTTP_REQUEST_FAILED(40000,"HTTP请求失败"),
+    DATA_NOT_FOUND(50000,"数据不存在"),
+    DATA_HAS_EXISTS(60000,"数据已经存在"),
+    AUTH_FAILED(70000,"用户权限不足"),
     ERROR(99999,"操作失败"),
     ;
     private int code;

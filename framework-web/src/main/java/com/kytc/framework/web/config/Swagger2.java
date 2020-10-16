@@ -1,5 +1,6 @@
 package com.kytc.framework.web.config;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -20,13 +21,15 @@ import springfox.documentation.spring.web.plugins.Docket;
 @ConditionalOnProperty(prefix = "swagger",value="enable",havingValue = "true")
 public class Swagger2 {
      // swagger2的配置文件，这里可以配置swagger2的一些基本的内容，比如扫描的包等等
+     @Value("${swagger.api.package}")
+     private String packagePath;
      @Bean
      public Docket createRestApi() {
           return new Docket(DocumentationType.SWAGGER_2)
                    .apiInfo(apiInfo())
                    .select()
                    // 为当前包路径
-                   .apis(RequestHandlerSelectors.basePackage("com.kytc")).paths(PathSelectors.any())
+                   .apis(RequestHandlerSelectors.basePackage(packagePath)).paths(PathSelectors.any())
                    .build();
      }
      // 构建 api文档的详细信息函数,注意这里的注解引用的是哪个

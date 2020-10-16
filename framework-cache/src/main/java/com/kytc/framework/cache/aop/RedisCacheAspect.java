@@ -60,7 +60,7 @@ public class RedisCacheAspect {
         try {
             Object returnData = point.proceed();
             if( null != returnData ){
-                redisUtil.set(key,returnData,redisCache.expireTime());
+                redisUtil.set(key,returnData,redisCache.expireTime(),redisCache.timeUnit());
             }
             return returnData;
         }catch (Exception e){
