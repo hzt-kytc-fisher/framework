@@ -21,6 +21,7 @@ public class BaseResponse<T> implements Serializable {
     private int code;
     private String message;
     private T data;
+    private long timeLength;
     public boolean isSuccess(){
         return code == 10000;
     }
