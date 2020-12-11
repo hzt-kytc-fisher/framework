@@ -23,6 +23,6 @@ public class FeignRequestInterceptor implements RequestInterceptor {
         HttpServletRequest request = ((ServletRequestAttributes)
                                RequestContextHolder.getRequestAttributes()).getRequest();
         String traceId = MDC.get("traceId");
-        requestTemplate.header("TRACE_ID", traceId);
+        requestTemplate.header("x-trace-id", traceId);
     }
 }

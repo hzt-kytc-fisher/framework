@@ -22,6 +22,8 @@ public class BasePageRequest implements Serializable {
     private int pageSize;
     private int start;
     private int limit;
+    private String sortField;
+    private String sort;
     public void init(){
         this.limit = pageSize;
         this.start = (this.page-1)*pageSize;

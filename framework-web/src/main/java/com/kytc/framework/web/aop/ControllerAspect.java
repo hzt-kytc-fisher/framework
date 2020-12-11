@@ -53,7 +53,7 @@ public class ControllerAspect {
         ServletRequestAttributes sra = (ServletRequestAttributes) ra;
         HttpServletRequest request = sra.getRequest();
         // 如果有session则返回session如果没有则返回null(避免创建过多的session浪费内存)
-        String traceId = request.getHeader("TRACE_ID");
+        String traceId = request.getHeader("x-trace-id");
         String userId = request.getHeader("userId");
         if(StringUtils.isEmpty(traceId)){
             traceId = UUID.randomUUID().toString();

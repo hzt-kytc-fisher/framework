@@ -21,7 +21,7 @@ import springfox.documentation.spring.web.plugins.Docket;
 @ConditionalOnProperty(prefix = "swagger",value="enable",havingValue = "true")
 public class Swagger2 {
      // swagger2的配置文件，这里可以配置swagger2的一些基本的内容，比如扫描的包等等
-     @Value("${swagger.api.package}")
+     @Value("${swagger.api.package:com.kytc}")
      private String packagePath;
      @Bean
      public Docket createRestApi() {
